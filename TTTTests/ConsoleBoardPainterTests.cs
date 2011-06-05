@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using TTT;
+using TTT.UI;
 
 namespace TTTTests
 {

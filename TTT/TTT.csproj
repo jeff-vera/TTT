@@ -41,10 +41,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
-    <Compile Include="ConsoleBoardPainter.cs" />
+    <Compile Include="UI\ConsoleBoardPainter.cs" />
     <Compile Include="Cross.cs" />
     <Compile Include="Exceptions\InvalidMoveException.cs" />
-    <Compile Include="IBoardPainter.cs" />
+    <Compile Include="UI\IBoardPainter.cs" />
     <Compile Include="Nought.cs" />
     <Compile Include="Piece.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

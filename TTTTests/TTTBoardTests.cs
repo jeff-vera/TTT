@@ -2,6 +2,7 @@
 using NUnit.Framework;
 using System;
 using TTT;
+using TTT.UI;
 using TTT.Exceptions;
 
 namespace TTTTests

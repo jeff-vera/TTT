@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace TTT
+namespace TTT.UI
 {
 	public class ConsoleBoardPainter : IBoardPainter
 	{
