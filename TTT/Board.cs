@@ -38,5 +38,27 @@ namespace TTT
 		{
 			_board = new Piece[Rows, Columns];
 		}
+
+		public virtual Piece[] GetRow(int whichRow)
+		{
+			Piece[] row = new Piece[Columns];
+			for (int j = 0; j <= Columns - 1; ++j)
+			{
+				row[j] = _board[whichRow, j];
+			}
+
+			return row;
+		}
+
+		public virtual Piece[] GetColumn(int whichColumn)
+		{
+			Piece[] column = new Piece[Rows];
+			for (int j = 0; j <= Rows - 1; ++j)
+			{
+				column[j] = _board[j, whichColumn];
+			}
+
+			return column;
+		}
 	}
 }

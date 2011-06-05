@@ -46,11 +46,7 @@ namespace TTT
 		{
 			for (int i = 0; i <= Rows - 1; ++i)
 			{
-				Piece[] row = new Piece[Columns];
-				for (int j = 0; j <= Columns - 1; ++j)
-				{
-					row[j] = _board[i, j];
-				}
+				Piece[] row = GetRow(i);
 				if (row.All(x => x != null) && 
 					(
 					row.All(x => x.Symbol == 'X')
@@ -64,11 +60,7 @@ namespace TTT
 
 			for (int i = 0; i <= Columns - 1; ++i)
 			{
-				Piece[] column = new Piece[Rows];
-				for (int j = 0; j <= Rows - 1; ++j)
-				{
-					column[j] = _board[j, i];
-				}
+				Piece[] column = GetColumn(i);
 				if (column.All(x => x != null) && 
 					(
 					column.All(x => x.Symbol == 'X')
