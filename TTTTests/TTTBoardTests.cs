@@ -140,5 +140,15 @@ namespace TTTTests
 			Assert.That(p, Is.Not.Null);
 			Assert.That(p, Is.TypeOf<Cross>());
 		}
+
+		[Test]
+		public void MovesLeftIsCorrectForEmptyBoard()
+		{
+			_board.Clear();
+
+			int movesLeft = _board.MovesLeft();
+
+			Assert.That(movesLeft, Is.EqualTo(9));
+		}
 	}
 }

@@ -6,6 +6,8 @@ namespace TTT.UI
 	{
 		public void PaintRow(Piece[] row)
 		{
+			Console.Write("|");
+
 			for (int i = 0; i < row.Length; ++i)
 			{
 				if (row[i] != null)
@@ -17,7 +19,8 @@ namespace TTT.UI
 					Console.Write(' ');
 				}
 			}
-			Console.Write("\n");
+
+			Console.WriteLine("|");
 		}
 	}
 }

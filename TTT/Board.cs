@@ -39,10 +39,27 @@ namespace TTT
 			_board = new Piece[Rows, Columns];
 		}
 
+		public virtual int MovesLeft()
+		{
+			int movesLeft = 0;
+			for (int i = 0; i < Rows; ++i)
+			{
+				for (int j = 0; j < Columns; ++j)
+				{
+					if (_board[i, j] == null)
+					{
+						movesLeft++;
+					}
+				}
+			}
+
+			return movesLeft;
+		}
+
 		public virtual Piece[] GetRow(int whichRow)
 		{
 			Piece[] row = new Piece[Columns];
-			for (int j = 0; j <= Columns - 1; ++j)
+			for (int j = 0; j < Columns; ++j)
 			{
 				row[j] = _board[whichRow, j];
 			}
@@ -53,7 +70,7 @@ namespace TTT
 		public virtual Piece[] GetColumn(int whichColumn)
 		{
 			Piece[] column = new Piece[Rows];
-			for (int j = 0; j <= Rows - 1; ++j)
+			for (int j = 0; j < Rows; ++j)
 			{
 				column[j] = _board[j, whichColumn];
 			}
