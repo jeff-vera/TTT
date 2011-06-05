@@ -2,6 +2,7 @@
 using System.Text.RegularExpressions;
 using TTT;
 using TTT.UI;
+using TTT.AI;
 
 namespace TTTConsoleDriver
 {
@@ -10,6 +11,8 @@ namespace TTTConsoleDriver
 		static void Main(string[] args)
 		{
 			Piece currentTurn = new Nought();
+			bool computersTurn = false;
+			RandomProcessor computer = new RandomProcessor();
 			ConsoleBoardPainter boardPainter = new ConsoleBoardPainter();
 			TTTBoard board = new TTTBoard();
 			Piece winner = null;
@@ -21,11 +24,20 @@ namespace TTTConsoleDriver
 				Console.WriteLine(
 					"{0}'s move, enter row/col, 0-based",
 					currentTurn.Symbol);
-				string input = Console.ReadLine();
 				try
 				{
-					int[] coords = ParseMove(input);
-					board.MakeMove(currentTurn, coords[0], coords[1]);
+					if (computersTurn)
+					{
+						Console.WriteLine("computer moving...");
+						computer.MakeMove(board);
+					}
+					else
+					{
+						string input = Console.ReadLine();
+						int[] coords = ParseMove(input);
+						board.MakeMove(currentTurn, coords[0], coords[1]);
+					}
+					computersTurn = !computersTurn;
 					if (currentTurn.Symbol == 'X')
 					{
 						currentTurn = new Nought();
