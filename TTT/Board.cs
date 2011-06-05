@@ -5,8 +5,10 @@ namespace TTT
 {
 	public abstract class Board
 	{
-		public abstract int Rows { get; }
-		public abstract int Columns { get; }
+		protected Piece[,] _board;
+
+		public virtual int Rows { get; protected set; }
+		public virtual int Columns { get; protected set; }
 
 		public virtual void MakeMove(Piece p, int row, int column)
 		{
@@ -26,6 +28,11 @@ namespace TTT
 			{
 				throw new InvalidMoveException("cannot make move with null piece");
 			}
+		}
+
+		public virtual void Clear()
+		{
+			_board = new Piece[Rows, Columns];
 		}
 	}
 }

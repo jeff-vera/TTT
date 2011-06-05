@@ -45,10 +45,20 @@ namespace TTTTests
 		}
 
 		[Test]
-		public void CannotMakeMoveWithNullPiece()
+		public void CannotMakeMoveWithNullPieceTest()
 		{
 			Assert.That(() =>
 				_board.MakeMove(null, 1, 1),
+				Throws.Exception.TypeOf<InvalidMoveException>());
+		}
+
+		[Test]
+		public void CannotMakeMoveToOccupiedSpotTest()
+		{
+			_board.Clear();
+			_board.MakeMove(new Nought(), 1, 1);
+			Assert.That(() =>
+				_board.MakeMove(new Nought(), 1, 1),
 				Throws.Exception.TypeOf<InvalidMoveException>());
 		}
 	}
