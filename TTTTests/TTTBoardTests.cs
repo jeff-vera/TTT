@@ -1,5 +1,6 @@
-﻿using System;
+﻿using Moq;
 using NUnit.Framework;
+using System;
 using TTT;
 using TTT.Exceptions;
 
@@ -60,6 +61,18 @@ namespace TTTTests
 			Assert.That(() =>
 				_board.MakeMove(new Nought(), 1, 1),
 				Throws.Exception.TypeOf<InvalidMoveException>());
+		}
+
+		[Test]
+		public void PaintBoardCallsPaintRowTest()
+		{
+			Mock<IBoardPainter> mockPainter = new Mock<IBoardPainter>();
+			mockPainter.Setup(x => x.PaintRow(It.IsAny<Piece[]>()));
+
+			_board.PaintBoard(mockPainter.Object);
+
+			mockPainter.Verify(x => x.PaintRow(It.IsAny<Piece[]>()), 
+				Times.Exactly(3));
 		}
 	}
 }

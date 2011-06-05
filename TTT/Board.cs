@@ -30,6 +30,8 @@ namespace TTT
 			}
 		}
 
+		public abstract void PaintBoard(IBoardPainter p);
+
 		public virtual void Clear()
 		{
 			_board = new Piece[Rows, Columns];

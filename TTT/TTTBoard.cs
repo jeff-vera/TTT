@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using TTT.Exceptions;
 
 namespace TTT
@@ -25,6 +26,19 @@ namespace TTT
 			}
 
 			_board[row, column] = p;
+		}
+
+		public override void PaintBoard(IBoardPainter p)
+		{
+			for (int i = 0; i <= Rows - 1; ++i)
+			{
+				Piece[] row = new Piece[Columns];
+				for (int j = 0; j <= Columns - 1; ++j)
+				{
+					row[j] = _board[i, j];
+				}
+				p.PaintRow(row);
+			}			
 		}
 	}
 }
