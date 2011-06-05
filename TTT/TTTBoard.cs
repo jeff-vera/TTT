@@ -51,7 +51,12 @@ namespace TTT
 				{
 					row[j] = _board[i, j];
 				}
-				if (row.All(x => x != null) && row.SequenceEqual(row))
+				if (row.All(x => x != null) && 
+					(
+					row.All(x => x.Symbol == 'X')
+					||
+					row.All(x => x.Symbol == 'O')
+					))
 				{
 					return row[0];
 				}
@@ -64,7 +69,12 @@ namespace TTT
 				{
 					column[j] = _board[j, i];
 				}
-				if (column.All(x => x != null) && column.SequenceEqual(column))
+				if (column.All(x => x != null) && 
+					(
+					column.All(x => x.Symbol == 'X')
+					||
+					column.All(x => x.Symbol == 'O')
+					))
 				{
 					return column[0];
 				}

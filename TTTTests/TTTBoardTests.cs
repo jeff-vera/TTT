@@ -77,9 +77,22 @@ namespace TTTTests
 		}
 
 		[Test]
-		public void NoFakeWinnersTest()
+		public void NoFakeWinnersForNullsTest()
 		{
 			_board.Clear();
+
+			Piece p = _board.GetWinner();
+
+			Assert.That(p, Is.Null);
+		}
+
+		[Test]
+		public void NoFakeWinnersForMixedPiecesTest()
+		{
+			_board.Clear();
+			_board.MakeMove(new Nought(), 1, 0);
+			_board.MakeMove(new Cross(), 1, 1);
+			_board.MakeMove(new Nought(), 1, 2);
 
 			Piece p = _board.GetWinner();
 
