@@ -3,6 +3,8 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2010
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTT", "TTT\TTT.csproj", "{8E25A3F1-2345-4897-86F5-FD632B4B4B8F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TTTTests", "TTTTests\TTTTests.csproj", "{163EF8AF-2AE2-44AB-A31C-890CCBC1E8AB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -13,6 +15,10 @@ Global
 		{8E25A3F1-2345-4897-86F5-FD632B4B4B8F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8E25A3F1-2345-4897-86F5-FD632B4B4B8F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8E25A3F1-2345-4897-86F5-FD632B4B4B8F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{163EF8AF-2AE2-44AB-A31C-890CCBC1E8AB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{163EF8AF-2AE2-44AB-A31C-890CCBC1E8AB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{163EF8AF-2AE2-44AB-A31C-890CCBC1E8AB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{163EF8AF-2AE2-44AB-A31C-890CCBC1E8AB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
