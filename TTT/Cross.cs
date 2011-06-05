@@ -8,5 +8,10 @@ namespace TTT
 		{
 			get { return "Cross"; }
 		}
+
+		public override char Symbol
+		{
+			get { return 'X'; }
+		}
 	}
 }

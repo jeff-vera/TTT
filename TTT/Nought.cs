@@ -8,5 +8,10 @@ namespace TTT
 		{
 			get { return "Nought";  }
 		}
+
+		public override char Symbol
+		{
+			get { return 'O'; }
+		}
 	}
 }
