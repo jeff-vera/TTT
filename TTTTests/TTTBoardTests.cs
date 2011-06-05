@@ -75,5 +75,29 @@ namespace TTTTests
 			mockPainter.Verify(x => x.PaintRow(It.IsAny<Piece[]>()), 
 				Times.Exactly(3));
 		}
+
+		[Test]
+		public void NoFakeWinnersTest()
+		{
+			_board.Clear();
+
+			Piece p = _board.GetWinner();
+
+			Assert.That(p, Is.Null);
+		}
+
+		[Test]
+		public void CanGetRowWinnerTest()
+		{
+			_board.Clear();
+			_board.MakeMove(new Nought(), 0, 0);
+			_board.MakeMove(new Nought(), 0, 1);
+			_board.MakeMove(new Nought(), 0, 2);
+
+			Piece p = _board.GetWinner();
+
+			Assert.That(p, Is.Not.Null);
+			Assert.That(p, Is.TypeOf<Nought>());
+		}
 	}
 }

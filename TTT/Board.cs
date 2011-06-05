@@ -32,6 +32,7 @@ namespace TTT
 		}
 
 		public abstract void PaintBoard(IBoardPainter p);
+		public abstract Piece GetWinner();
 
 		public virtual void Clear()
 		{
