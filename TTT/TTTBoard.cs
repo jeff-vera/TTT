@@ -13,5 +13,12 @@ namespace TTT
 		{
 			get { return 3; }
 		}
+
+		public override void MakeMove(Piece p, int row, int column)			
+		{
+			base.MakeMove(p, row, column);
+
+
+		}
 	}
 }

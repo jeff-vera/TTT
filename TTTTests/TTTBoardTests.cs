@@ -1,6 +1,7 @@
 ﻿using System;
 using NUnit.Framework;
 using TTT;
+using TTT.Exceptions;
 
 namespace TTTTests
 {
@@ -16,15 +17,39 @@ namespace TTTTests
 		}
 
 		[Test]
-		public void TTTBoardHasThreeRowsTest()
+		public void HasThreeRowsTest()
 		{
 			Assert.That(_board.Columns, Is.EqualTo(3));
 		}
 
 		[Test]
-		public void TTTBoardHasThreeColumnsTest()
+		public void HasThreeColumnsTest()
 		{
 			Assert.That(_board.Rows, Is.EqualTo(3));
+		}
+
+		[Test]
+		public void CannotMakeMoveOutOfRowBoundsTest()
+		{
+			Assert.That(() =>
+				_board.MakeMove(new Nought(), -1, 1),
+				Throws.Exception.TypeOf<InvalidMoveException>());
+		}
+
+		[Test]
+		public void CannotMakeMoveOutOfColumnBoundsTest()
+		{
+			Assert.That(() =>
+				_board.MakeMove(new Nought(), 1, -1),
+				Throws.Exception.TypeOf<InvalidMoveException>());
+		}
+
+		[Test]
+		public void CannotMakeMoveWithNullPiece()
+		{
+			Assert.That(() =>
+				_board.MakeMove(null, 1, 1),
+				Throws.Exception.TypeOf<InvalidMoveException>());
 		}
 	}
 }
