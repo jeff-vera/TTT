@@ -12,13 +12,13 @@ namespace TTT
 
 		public virtual void MakeMove(Piece p, int row, int column)
 		{
-			if (row < 1 || row > Rows)
+			if (row < 0 || row > Rows - 1)
 			{
 				throw new InvalidMoveException(
 					String.Format("row {0} out of bounds", row));
 			}
 
-			if (column < 1 || column > Columns)
+			if (column < 0 || column > Columns - 1)
 			{
 				throw new InvalidMoveException(
 					String.Format("column {0} out of bounds", column));

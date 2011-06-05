@@ -41,6 +41,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Board.cs" />
+    <Compile Include="ConsoleBoardPainter.cs" />
     <Compile Include="Cross.cs" />
     <Compile Include="Exceptions\InvalidMoveException.cs" />
     <Compile Include="IBoardPainter.cs" />
