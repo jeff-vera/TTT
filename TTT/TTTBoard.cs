@@ -51,8 +51,7 @@ namespace TTT
 				{
 					row[j] = _board[i, j];
 				}
-				bool equals = row.SequenceEqual(row);
-				if (equals)
+				if (row.All(x => x != null) && row.SequenceEqual(row))
 				{
 					return row[0];
 				}
@@ -65,8 +64,7 @@ namespace TTT
 				{
 					column[j] = _board[j, i];
 				}
-				bool equals = column.SequenceEqual(column);
-				if (equals)
+				if (column.All(x => x != null) && column.SequenceEqual(column))
 				{
 					return column[0];
 				}

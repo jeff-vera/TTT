@@ -90,14 +90,28 @@ namespace TTTTests
 		public void CanGetRowWinnerTest()
 		{
 			_board.Clear();
-			_board.MakeMove(new Nought(), 0, 0);
-			_board.MakeMove(new Nought(), 0, 1);
-			_board.MakeMove(new Nought(), 0, 2);
+			_board.MakeMove(new Nought(), 1, 0);
+			_board.MakeMove(new Nought(), 1, 1);
+			_board.MakeMove(new Nought(), 1, 2);
 
 			Piece p = _board.GetWinner();
 
 			Assert.That(p, Is.Not.Null);
 			Assert.That(p, Is.TypeOf<Nought>());
+		}
+
+		[Test]
+		public void CanGetColumnWinnerTest()
+		{
+			_board.Clear();
+			_board.MakeMove(new Cross(), 0, 1);
+			_board.MakeMove(new Cross(), 1, 1);
+			_board.MakeMove(new Cross(), 2, 1);
+
+			Piece p = _board.GetWinner();
+
+			Assert.That(p, Is.Not.Null);
+			Assert.That(p, Is.TypeOf<Cross>());
 		}
 	}
 }
