@@ -150,5 +150,13 @@ namespace TTTTests
 
 			Assert.That(movesLeft, Is.EqualTo(9));
 		}
+
+		[Test]
+		public void ItsAnybodysMoveWhenBoardFirstCreatedTest()
+		{
+			_board.Clear();
+
+			Assert.That(_board.NextMove, Is.Null);
+		}
 	}
 }

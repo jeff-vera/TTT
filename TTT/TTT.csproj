@@ -40,6 +40,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AI\IProcessor.cs" />
+    <Compile Include="AI\Random.cs" />
     <Compile Include="Board.cs" />
     <Compile Include="UI\ConsoleBoardPainter.cs" />
     <Compile Include="Cross.cs" />

@@ -9,6 +9,7 @@ namespace TTT
 	{
 		protected Piece[,] _board;
 
+		public virtual Piece NextMove { get; private set; }
 		public virtual int Rows { get; protected set; }
 		public virtual int Columns { get; protected set; }
 
@@ -38,6 +39,7 @@ namespace TTT
 		public virtual void Clear()
 		{
 			_board = new Piece[Rows, Columns];
+			NextMove = null;
 		}
 
 		public virtual IList<Tuple<int, int>> GetAvailableMoves()
