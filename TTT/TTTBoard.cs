@@ -42,23 +42,6 @@ namespace TTT
 			}			
 		}
 
-		private static bool PieceArrayIsWinner(Piece[] target)
-		{
-			if (target.All(x => x != null) &&
-				(
-				target.All(x => x.Symbol == 'X')
-				||
-				target.All(x => x.Symbol == 'O')
-				))
-			{
-				return true;
-			}
-			else
-			{
-				return false;
-			}
-		}
-
 		public override Piece GetWinner()
 		{
 			for (int i = 0; i <= Rows - 1; ++i)
@@ -98,6 +81,23 @@ namespace TTT
 			}
 
 			return null;
+		}
+
+		private static bool PieceArrayIsWinner(Piece[] target)
+		{
+			if (target.All(x => x != null) &&
+				(
+				target.All(x => x.Symbol == 'X')
+				||
+				target.All(x => x.Symbol == 'O')
+				))
+			{
+				return true;
+			}
+			else
+			{
+				return false;
+			}
 		}
 	}
 }
