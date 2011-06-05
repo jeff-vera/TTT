@@ -27,6 +27,15 @@ namespace TTT
 			}
 
 			_board[row, column] = p;
+
+			if (p is Nought)
+			{
+				NextMove = new Cross();
+			}
+			else
+			{
+				NextMove = new Nought();
+			}
 		}
 
 		public override void PaintBoard(IBoardPainter p)

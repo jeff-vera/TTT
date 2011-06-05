@@ -9,12 +9,18 @@ namespace TTT
 	{
 		protected Piece[,] _board;
 
-		public virtual Piece NextMove { get; private set; }
+		public virtual Piece NextMove { get; protected set; }
 		public virtual int Rows { get; protected set; }
 		public virtual int Columns { get; protected set; }
 
 		public virtual void MakeMove(Piece p, int row, int column)
 		{
+			if (NextMove != null && NextMove.Symbol != p.Symbol) 
+			{
+				throw new InvalidMoveException(
+					String.Format("it's not {0}'s turn", p.Symbol));
+			}
+
 			if (row < 0 || row > Rows - 1)
 			{
 				throw new InvalidMoveException(
@@ -30,7 +36,7 @@ namespace TTT
 			if (p == null)
 			{
 				throw new InvalidMoveException("cannot make move with null piece");
-			}
+			}			
 		}
 
 		public abstract void PaintBoard(IBoardPainter p);

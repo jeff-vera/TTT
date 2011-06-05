@@ -158,5 +158,16 @@ namespace TTTTests
 
 			Assert.That(_board.NextMove, Is.Null);
 		}
+
+		[Test]
+		public void CantMakeAnOutOfOrderMoveTest()
+		{
+			_board.Clear();
+			_board.MakeMove(new Cross(), 0, 0);
+
+			Assert.That(() => 
+				_board.MakeMove(new Cross(), 1, 1),
+				Throws.Exception.TypeOf<InvalidMoveException>());
+		}
 	}
 }
