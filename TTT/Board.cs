@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using TTT.Exceptions;
 using TTT.UI;
 
@@ -39,21 +40,27 @@ namespace TTT
 			_board = new Piece[Rows, Columns];
 		}
 
-		public virtual int MovesLeft()
+		public virtual IList<Tuple<int, int>> GetAvailableMoves()
 		{
-			int movesLeft = 0;
+			IList<Tuple<int, int>> moves = new List<Tuple<int, int>>();
+			
 			for (int i = 0; i < Rows; ++i)
 			{
 				for (int j = 0; j < Columns; ++j)
 				{
 					if (_board[i, j] == null)
 					{
-						movesLeft++;
+						moves.Add(new Tuple<int, int>(i, j));
 					}
 				}
 			}
 
-			return movesLeft;
+			return moves;
+		}
+
+		public virtual int MovesLeft()
+		{
+			return GetAvailableMoves().Count;
 		}
 
 		public virtual Piece[] GetRow(int whichRow)
