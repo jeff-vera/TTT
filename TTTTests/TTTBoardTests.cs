@@ -126,5 +126,19 @@ namespace TTTTests
 			Assert.That(p, Is.Not.Null);
 			Assert.That(p, Is.TypeOf<Cross>());
 		}
+
+		[Test]
+		public void CanGetDiagnoalWinnerTest()
+		{
+			_board.Clear();
+			_board.MakeMove(new Cross(), 0, 0);
+			_board.MakeMove(new Cross(), 1, 1);
+			_board.MakeMove(new Cross(), 2, 2);
+
+			Piece p = _board.GetWinner();
+
+			Assert.That(p, Is.Not.Null);
+			Assert.That(p, Is.TypeOf<Cross>());
+		}
 	}
 }

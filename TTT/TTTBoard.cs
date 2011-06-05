@@ -80,6 +80,34 @@ namespace TTT
 				}
 			}
 
+			Piece[] diag = new Piece[3];
+			diag[0] = _board[0, 0];
+			diag[1] = _board[1, 1];
+			diag[2] = _board[2, 2];
+			if (diag.All(x => x != null) &&
+				(
+				diag.All(x => x.Symbol == 'X')
+				||
+				diag.All(x => x.Symbol == 'O')
+				))
+			{
+				return diag[0];
+			}
+
+			diag = new Piece[3];
+			diag[0] = _board[2, 0];
+			diag[1] = _board[1, 1];
+			diag[2] = _board[0, 2];
+			if (diag.All(x => x != null) &&
+				(
+				diag.All(x => x.Symbol == 'X')
+				||
+				diag.All(x => x.Symbol == 'O')
+				))
+			{
+				return diag[0];
+			}
+
 			return null;
 		}
 	}
