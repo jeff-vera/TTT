@@ -38,6 +38,42 @@ namespace TTT
 			}
 		}
 
+		public override Board Copy()
+		{
+			TTTBoard copy = new TTTBoard();
+			if (NextMove != null)
+			{
+				if (NextMove.Symbol == 'X')
+				{
+					copy.NextMove = new Cross();
+				}
+				else
+				{
+					copy.NextMove = new Nought();
+				}
+			} 
+
+			for (int i = 0; i < Rows; ++i)
+			{
+				for (int j = 0; j < Columns; ++j)
+				{
+					if (_board[i, j] != null)
+					{
+						if (_board[i, j].Symbol == 'X')
+						{
+							copy._board[i, j] = new Cross();
+						}
+						else
+						{
+							copy._board[i, j] = new Nought();
+						}
+					}
+				}
+			}
+
+			return copy;
+		}
+
 		public override void PaintBoard(IBoardPainter p)
 		{
 			for (int i = 0; i <= Rows - 1; ++i)

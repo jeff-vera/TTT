@@ -27,6 +27,12 @@ namespace TTT.AI
 			}
 			else
 			{
+				int currentBestValue = 0;
+				foreach (Tuple<int, int> move in moves)
+				{
+
+				}
+
 				throw new NotImplementedException();
 			}
 		}

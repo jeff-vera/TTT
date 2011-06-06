@@ -95,7 +95,6 @@ namespace TTTTests
 		[Test]
 		public void NoFakeWinnersForMixedPiecesTest()
 		{
-			_board.Clear();
 			_board.MakeMove(new Nought(), 1, 0);
 			_board.MakeMove(new Cross(), 1, 1);
 			_board.MakeMove(new Nought(), 1, 2);
@@ -108,7 +107,6 @@ namespace TTTTests
 		[Test]
 		public void CanGetRowWinnerTest()
 		{
-			_board.Clear();
 			_board.MakeMove(new Nought(), 1, 0);
 			_board.MakeMove(new Cross(), 2, 0);
 			_board.MakeMove(new Nought(), 1, 1);
@@ -124,7 +122,6 @@ namespace TTTTests
 		[Test]
 		public void CanGetColumnWinnerTest()
 		{
-			_board.Clear();
 			_board.MakeMove(new Cross(), 0, 1);
 			_board.MakeMove(new Nought(), 0, 2);
 			_board.MakeMove(new Cross(), 1, 1);
@@ -140,7 +137,6 @@ namespace TTTTests
 		[Test]
 		public void CanGetDiagnoalWinnerTest()
 		{
-			_board.Clear();
 			_board.MakeMove(new Cross(), 0, 0);
 			_board.MakeMove(new Nought(), 0, 1);
 			_board.MakeMove(new Cross(), 1, 1);
@@ -156,8 +152,6 @@ namespace TTTTests
 		[Test]
 		public void MovesLeftIsCorrectForEmptyBoard()
 		{
-			_board.Clear();
-
 			int movesLeft = _board.MovesLeft();
 
 			Assert.That(movesLeft, Is.EqualTo(9));
@@ -166,20 +160,27 @@ namespace TTTTests
 		[Test]
 		public void ItsAnybodysMoveWhenBoardFirstCreatedTest()
 		{
-			_board.Clear();
-
 			Assert.That(_board.NextMove, Is.Null);
 		}
 
 		[Test]
 		public void CantMakeAnOutOfOrderMoveTest()
 		{
-			_board.Clear();
 			_board.MakeMove(new Cross(), 0, 0);
 
 			Assert.That(() => 
 				_board.MakeMove(new Cross(), 1, 1),
 				Throws.Exception.TypeOf<InvalidMoveException>());
+		}
+
+		[Test]
+		public void CopyIsReallyCopyTest()
+		{
+			TTTBoard copy = (TTTBoard)_board.Copy();
+
+			copy.MakeMove(new Nought(), 0, 0);
+
+			Assert.That(_board.GetAvailableMoves().Count, Is.EqualTo(9));
 		}
 	}
 }
