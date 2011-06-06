@@ -18,6 +18,12 @@ namespace TTTTests
 			_board = new TTTBoard();
 		}
 
+		[SetUp]
+		public void TestSetup()
+		{
+			_board.Clear();
+		}
+
 		[Test]
 		public void HasThreeRowsTest()
 		{
@@ -104,7 +110,9 @@ namespace TTTTests
 		{
 			_board.Clear();
 			_board.MakeMove(new Nought(), 1, 0);
+			_board.MakeMove(new Cross(), 2, 0);
 			_board.MakeMove(new Nought(), 1, 1);
+			_board.MakeMove(new Cross(), 2, 1);
 			_board.MakeMove(new Nought(), 1, 2);
 
 			Piece p = _board.GetWinner();
@@ -118,7 +126,9 @@ namespace TTTTests
 		{
 			_board.Clear();
 			_board.MakeMove(new Cross(), 0, 1);
+			_board.MakeMove(new Nought(), 0, 2);
 			_board.MakeMove(new Cross(), 1, 1);
+			_board.MakeMove(new Nought(), 0, 0);
 			_board.MakeMove(new Cross(), 2, 1);
 
 			Piece p = _board.GetWinner();
@@ -132,7 +142,9 @@ namespace TTTTests
 		{
 			_board.Clear();
 			_board.MakeMove(new Cross(), 0, 0);
+			_board.MakeMove(new Nought(), 0, 1);
 			_board.MakeMove(new Cross(), 1, 1);
+			_board.MakeMove(new Nought(), 2, 1);
 			_board.MakeMove(new Cross(), 2, 2);
 
 			Piece p = _board.GetWinner();
