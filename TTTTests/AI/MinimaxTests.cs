@@ -35,5 +35,19 @@ namespace TTTTests.AI
 
 			Assert.That(returnValue, Is.EqualTo(100));
 		}
+
+		[Test]
+		public void WinnerAsNotSourceReturnsNegative100Test()
+		{
+			Mock<Board> mockBoard = new Mock<Board> { CallBase = true };
+			mockBoard.Setup(x => x.GetAvailableMoves())
+				.Returns(new List<Tuple<int, int>>());
+			mockBoard.Setup(x => x.GetWinner()).Returns(new Nought());
+			mockBoard.Setup(x => x.NextMove).Returns(new Cross());
+
+			int returnValue = Minimax.minimax(mockBoard.Object, new Cross());
+
+			Assert.That(returnValue, Is.EqualTo(-100));
+		}
 	}
 }
