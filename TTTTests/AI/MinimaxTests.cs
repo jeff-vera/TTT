@@ -49,5 +49,41 @@ namespace TTTTests.AI
 
 			Assert.That(returnValue, Is.EqualTo(-100));
 		}
+
+		[Test]
+		public void CorrectlyReturnsMaxValueTest()
+		{
+			TTTBoard b = new TTTBoard();
+			b.MakeMove(new Cross(), 0, 0);
+			b.MakeMove(new Nought(), 1, 0);
+			b.MakeMove(new Cross(), 0, 1);
+			b.MakeMove(new Nought(), 2, 0);
+			b.MakeMove(new Cross(), 1, 1);
+			b.MakeMove(new Nought(), 0, 2);
+			b.MakeMove(new Cross(), 1, 2);
+			b.MakeMove(new Nought(), 2, 2);
+
+			int returnValue = Minimax.minimax(b, new Cross());
+
+			Assert.That(returnValue, Is.EqualTo(100));
+		}
+
+		[Test]
+		public void CorrectlyReturnsMinValueTest()
+		{
+			TTTBoard b = new TTTBoard();
+			b.MakeMove(new Cross(), 0, 0);
+			b.MakeMove(new Nought(), 1, 0);
+			b.MakeMove(new Cross(), 0, 1);
+			b.MakeMove(new Nought(), 2, 0);
+			b.MakeMove(new Cross(), 1, 1);
+			b.MakeMove(new Nought(), 0, 2);
+			b.MakeMove(new Cross(), 1, 2);
+			b.MakeMove(new Nought(), 2, 2);
+
+			int returnValue = Minimax.minimax(b, new Nought());
+
+			Assert.That(returnValue, Is.EqualTo(-100));
+		}
 	}
 }

@@ -30,10 +30,20 @@ namespace TTT.AI
 				int currentBestValue = 0;
 				foreach (Tuple<int, int> move in moves)
 				{
-
+					TTTBoard copy = (TTTBoard)b.Copy();
+					copy.MakeMove(b.NextMove, move.Item1, move.Item2);
+					int value = minimax(copy, source);
+					if (b.NextMove.Symbol != source.Symbol)
+					{
+						currentBestValue = Math.Min(currentBestValue, value);
+					}
+					else
+					{
+						currentBestValue = Math.Max(currentBestValue, value);
+					}
 				}
 
-				throw new NotImplementedException();
+				return currentBestValue;
 			}
 		}
 	}
