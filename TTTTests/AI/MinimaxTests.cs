@@ -84,6 +84,6 @@ namespace TTTTests.AI
 			int returnValue = Minimax.minimax(b, new Nought());
 
 			Assert.That(returnValue, Is.EqualTo(-100));
-		}
+		}		
 	}
 }
