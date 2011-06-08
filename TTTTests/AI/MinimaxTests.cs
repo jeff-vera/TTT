@@ -84,6 +84,39 @@ namespace TTTTests.AI
 			int returnValue = Minimax.minimax(b, new Nought());
 
 			Assert.That(returnValue, Is.EqualTo(-100));
-		}		
+		}
+
+		[Test]
+		public void CanProcessEarlyBoardTest()
+		{
+			TTTBoard b = new TTTBoard();
+			b.MakeMove(new Cross(), 1, 2);
+			b.MakeMove(new Nought(), 1, 1);
+			b.MakeMove(new Cross(), 0, 2);
+
+			int returnValue = Minimax.minimax(b, new Nought());
+			Console.WriteLine(returnValue);
+		}
+
+		[Test]
+		public void CanMakeMoveTest()
+		{
+			TTTBoard b = new TTTBoard();
+
+			Minimax.MakeMove(b, new Cross());
+			while (b.GetWinner() == null && b.MovesLeft() > 0)
+			{
+				Minimax.MakeMove(b, b.NextMove);
+			}
+
+			if (b.GetWinner() == null)
+			{
+				Console.WriteLine("draw");
+			}
+			else
+			{
+				Console.WriteLine("winner: {0}", b.GetWinner().Name);
+			}
+		}
 	}
 }
