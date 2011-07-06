@@ -1,5 +1,0 @@
-C:\Users\Jeff\Documents\Visual Studio 2010\Projects\TTT\TTT\bin\Debug\TTT.dll
-C:\Users\Jeff\Documents\Visual Studio 2010\Projects\TTT\TTT\bin\Debug\TTT.pdb
-C:\Users\Jeff\Documents\Visual Studio 2010\Projects\TTT\TTT\obj\Debug\ResolveAssemblyReference.cache
-C:\Users\Jeff\Documents\Visual Studio 2010\Projects\TTT\TTT\obj\Debug\TTT.dll
-C:\Users\Jeff\Documents\Visual Studio 2010\Projects\TTT\TTT\obj\Debug\TTT.pdb
